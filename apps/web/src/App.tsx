@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Footer, Header } from './components/layout'
 import { BetaBanner } from './components/layout/BetaBanner'
 import { Hero, Home } from './components/home'
-import { About, Base64Tool, ColorConverter, DiscordSuite, Donate, EmojiCopier, FAQ, FaviconGenerator, GoogleLensSearch, HashGenerator, ImageConverter, JsonTools, JwtDecoder, Legal, LinkShortener, MediaConverter, PaletteGenerator, PasswordGenerator, PDFTools, QRTools, RegexTester, Settings, Thanks, Tools, UrlTool, UuidGenerator } from './components/pages'
+import { About, Base64Tool, ColorConverter, DiscordMessageBuilder, Donate, EmojiCopier, FAQ, FaviconGenerator, GoogleLensSearch, HashGenerator, ImageConverter, JsonTools, JwtDecoder, Legal, LinkShortener, MediaConverter, PaletteGenerator, PasswordGenerator, PDFTools, QRTools, RegexTester, Settings, Thanks, Tools, UrlTool, UuidGenerator } from './components/pages'
 import { getCurrentRoute, getPageShellClass } from './lib/routing'
 
 function MainContent() {
@@ -63,8 +63,7 @@ function MainContent() {
       return <ColorConverter />
     case 'favicon-generator':
       return <FaviconGenerator />
-    case 'discord-components': return <DiscordSuite kind="components" />
-    case 'discord-embed': return <DiscordSuite kind="embed" />
+    case 'discord': return <DiscordMessageBuilder />
     default:
       return <Home />
   }
@@ -79,6 +78,11 @@ export default function App() {
     }
     window.scrollTo(0, 0)
   }, [route])
+
+  useEffect(() => {
+    if (window.location.pathname === '/tools/discord-components') window.history.replaceState(null, '', '/discord?mode=v2')
+    if (window.location.pathname === '/tools/discord-embed') window.history.replaceState(null, '', '/discord?mode=legacy')
+  }, [])
 
   return (
 

@@ -1,4 +1,4 @@
-export type AppRoute = 'home' | 'downloader' | 'faq' | 'settings' | 'about' | 'terms' | 'ethics' | 'donate' | 'thanks' | 'tools' | 'password-generator' | 'link-shortener' | 'pdf-tools' | 'image-converter' | 'google-lens' | 'emoji-copier' | 'media-converter' | 'json-tools' | 'jwt-decoder' | 'regex-tester' | 'uuid-generator' | 'hash-generator' | 'base64-tool' | 'url-tool' | 'qr-tools' | 'palette-generator' | 'color-converter' | 'favicon-generator' | 'discord-components' | 'discord-embed'
+export type AppRoute = 'home' | 'downloader' | 'faq' | 'settings' | 'about' | 'terms' | 'ethics' | 'donate' | 'thanks' | 'tools' | 'password-generator' | 'link-shortener' | 'pdf-tools' | 'image-converter' | 'google-lens' | 'emoji-copier' | 'media-converter' | 'json-tools' | 'jwt-decoder' | 'regex-tester' | 'uuid-generator' | 'hash-generator' | 'base64-tool' | 'url-tool' | 'qr-tools' | 'palette-generator' | 'color-converter' | 'favicon-generator' | 'discord'
 
 export function getCurrentRoute(pathname = window.location.pathname): AppRoute {
   const path = pathname.replace(/\/+$/, '')
@@ -58,8 +58,9 @@ export function getCurrentRoute(pathname = window.location.pathname): AppRoute {
       return 'color-converter'
     case '/tools/favicon-generator':
       return 'favicon-generator'
-    case '/tools/discord-components': return 'discord-components'
-    case '/tools/discord-embed': return 'discord-embed'
+    case '/discord':
+    case '/tools/discord-components':
+    case '/tools/discord-embed': return 'discord'
     default:
       return 'home'
   }
@@ -86,6 +87,7 @@ export function getPageShellClass(route: AppRoute): string {
   if (route === 'palette-generator') classes.push('palette-generator-page')
   if (route === 'color-converter') classes.push('color-converter-page')
   if (route === 'favicon-generator') classes.push('favicon-generator-page')
+  if (route === 'discord') classes.push('discord-page')
 
   return classes.join(' ')
 }

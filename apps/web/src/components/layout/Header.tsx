@@ -13,6 +13,7 @@ export function Header() {
   const navItems = [
     { key: 'downloader', href: '/downloader', label: t('nav.downloader') || 'Downloader' },
     { key: 'tools', href: '/tools', label: t('nav.tools') || 'Ferramentas' },
+    { key: 'discord', href: '/discord', label: 'Discord Tools' },
     { key: 'settings', href: '/settings', label: t('nav.settings') || 'Configurações' },
     { key: 'donate', href: '/donate', label: t('nav.donate') || 'Donate' },
   ]

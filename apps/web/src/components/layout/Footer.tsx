@@ -7,7 +7,7 @@ import {
   Sparkles,
   Wrench,
 } from 'lucide-react'
-import { TelegramIcon, DiscordIcon, GitHubIcon } from '../icons/BrandIcons'
+import { DiscordIcon, GitHubIcon } from '../icons/BrandIcons'
 import logo from '../../assets/images/logo.png'
 
 export function Footer() {
@@ -35,15 +35,6 @@ export function Footer() {
             </a>
 
             <div className="footer-socials">
-              <a
-                href="https://t.me/shappiretools"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Telegram"
-                className="footer-social-btn"
-              >
-                <TelegramIcon size={16} />
-              </a>
               <a
                 href="https://discord.gg/rWpepgrsHn"
                 target="_blank"
@@ -101,7 +92,7 @@ export function Footer() {
           <span className="footer-made">
             Made with <Heart size={12} className="footer-heart" /> in Brazil by{' '}
             <a
-              href="https://t.me/shappiretools"
+              href="https://github.com/vassilievz"
               target="_blank"
               rel="noopener noreferrer"
             >

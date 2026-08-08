@@ -20,8 +20,7 @@ const categories = [
     { href: '/tools/google-lens', icon: Search, name: 'tools.googleLens.name', description: 'tools.googleLens.description' },
   ] },
   { title: 'tools.category.discord', tools: [
-    { href:'/tools/discord-components', icon:MessageSquare,name:'discord.components.title',description:'discord.components.lead', image: 'https://i.imgur.com/GZtP6cx.png' },
-    { href:'/tools/discord-embed', icon:MessageSquare,name:'discord.embed.title',description:'discord.embed.lead', image: 'https://i.imgur.com/ARLMOga.png' },
+    { href:'/discord', icon:MessageSquare,name:'discord.tools.title',description:'discord.tools.lead', image: 'https://i.imgur.com/GZtP6cx.png' },
   ] },
   { title: 'tools.category.developer', tools: [
     { href: '/tools/json', icon: Braces, name: 'tools.json.name', description: 'tools.json.description', image: 'https://i.imgur.com/jcmZ3CD.png' },

@@ -20,6 +20,7 @@ import { redirectShortLink, shortenLink } from './tools/link-shortener.js';
 import { inspectMusic } from './media/music-info.js';
 import { googleLensLimiter, searchWithGoogleLens, uploadGoogleLensImage } from './tools/google-lens/route.js';
 import { createDonationPix, getAcknowledgements, getDonationStatus } from './tools/donations/route.js';
+import { sendDiscordWebhook, uploadDiscordAttachments } from './tools/discord-webhook.js';
 
 const app = express();
 
@@ -95,12 +96,13 @@ const tunnelLimiter = rateLimit({
 });
 
 app.set("trust proxy", ["loopback", "uniquelocal"]);
-app.use(express.json({ limit: 1024 }));
+app.use(express.json({ limit: '256kb' }));
 
 app.post('/tools/image-converter', apiLimiter, uploadImage, convertImage);
 app.post('/tools/media-converter', apiLimiter, uploadMedia, convertMedia);
 app.post('/tools/link-shortener', apiLimiter, shortenLink);
 app.post('/tools/google-lens', googleLensLimiter, uploadGoogleLensImage, searchWithGoogleLens);
+app.post('/tools/discord-webhook', apiLimiter, uploadDiscordAttachments, sendDiscordWebhook);
 app.post('/media/inspect', apiLimiter, inspectMusic);
 app.post('/donations/pix', apiLimiter, createDonationPix);
 app.get('/donations/acknowledgements', apiLimiter, getAcknowledgements);
@@ -206,4 +208,5 @@ app.listen(env.apiPort, '0.0.0.0', () => {
     console.log(`  ${Cyan('Porta:')} ${env.apiPort}`);
     console.log(`  ${Cyan('Host:')} 0.0.0.0`);
     console.log(`  ${Cyan('Servicos:')} ${[...env.enabledServices].join(', ')}\n`);
+    // void diagnoseDiscordTransport();
 });
